@@ -45,8 +45,8 @@ def init_anim():
     ax_temp.legend(loc='upper right')
 
     ax_co2.set_xlim(0, args.max_time)
-    ax_co2.set_ylim(1000, 3000)
-    ax_temp.set_ylim(10, 45)
+    ax_co2.set_ylim(0, 5000)
+    ax_temp.set_ylim(0, 50)
     plt.title("Evolution de la concentration de CO2 et de la température\n ({})".format(datetime.datetime.now()))
 
 def update_anim(frames):
