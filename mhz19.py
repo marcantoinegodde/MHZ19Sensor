@@ -47,7 +47,7 @@ def init_anim():
     ax_co2.set_xlim(0, args.max_time)
     ax_co2.set_ylim(0, 5000)
     ax_temp.set_ylim(0, 50)
-    plt.title("Evolution de la concentration de CO2 et de la température\n ({})".format(datetime.datetime.now()))
+    plt.title("Evolution de la concentration de CO2 et de la température\nen fonction du temps ({})".format(datetime.datetime.now()))
 
 def update_anim(frames):
     co2, temp, t = frames
@@ -62,11 +62,11 @@ def update_anim(frames):
     return ln_co2, ln_temp
 
 parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
-parser.add_argument("-o", "--output-csv", help="Fichier de destination", default="co2.csv")
+parser.add_argument("-o", "--output-csv", default="co2.csv", help="Fichier de destination des données")
 parser.add_argument("-f", "--output-image", default="co2.png", help="Fichier de destinaton de l'image du graphique")
-parser.add_argument("-i", "--interval", type=float, help="Intervalle de mesure, en secondes", default=2)
+parser.add_argument("-i", "--interval", default=2, type=float, help="Intervalle de mesure, en secondes")
 parser.add_argument("-p", "--port", default="/dev/serial0", help="Le port de connexion à la sonde")
-parser.add_argument("-d", "--debug", default=False, action="store_true", help="Ne pas lire les données de la sonde et utiliser des valeurs factices.")
+parser.add_argument("-d", "--debug", default=False, action="store_true", help="Ne pas lire les données de la sonde et utiliser des valeurs test")
 parser.add_argument("-l", "--line-style", default='', help="Le style de la lingne affichée peut être '', :', '-', '--' ou '-.'")
 parser.add_argument("-t", "--max-time", default=600.0, type=float, help="Le maximum initial sur l'axe des abscisses")
 args = parser.parse_args()
