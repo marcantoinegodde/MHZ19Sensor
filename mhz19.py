@@ -81,7 +81,7 @@ output_file = args.output_csv #Définition du fichier export
 
 print("Écriture dans {}". format(output_file))
 
-#Définition listes valeur
+#Définition listes valeurs
 data_co2 = []
 data_temp = []
 data_time = []
